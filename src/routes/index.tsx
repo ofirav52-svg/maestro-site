@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import portrait from "@/assets/producer-portrait.jpg";
 import connect from "@/assets/connect.jpg";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+
+const CONTACT_EMAIL = "hello@mixedbyalex.com";
+const WHATSAPP_NUMBER = "15551234567"; // update with real number (digits only, country code first)
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,11 +72,103 @@ function PillLink({ href, children }: { href: string; children: React.ReactNode 
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-opacity hover:opacity-80"
     >
       {children}
       <span aria-hidden>→</span>
     </a>
+  );
+}
+
+function ContactForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject || "new inquiry from mixedbyalex.com",
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  };
+
+  const whatsappText = encodeURIComponent(
+    "hi alex — i'd love to talk about a mix project.",
+  );
+  const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="name" className="text-sm opacity-80">name</Label>
+          <Input
+            id="name"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
+            placeholder="your name"
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="email" className="text-sm opacity-80">email</Label>
+          <Input
+            id="email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
+            placeholder="you@email.com"
+          />
+        </div>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="subject" className="text-sm opacity-80">subject</Label>
+        <Input
+          id="subject"
+          required
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+          className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
+          placeholder="mixing inquiry"
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="message" className="text-sm opacity-80">message</Label>
+        <Textarea
+          id="message"
+          required
+          rows={5}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50 min-h-[120px]"
+          placeholder="tell me a little about the project..."
+        />
+      </div>
+      <div className="flex flex-wrap gap-3 pt-2">
+        <button
+          type="submit"
+          className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-opacity hover:opacity-80"
+        >
+          send email <span aria-hidden>→</span>
+        </button>
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-5 py-2.5 text-sm font-medium text-sage-foreground transition-colors hover:bg-ink/5"
+        >
+          message on whatsapp <span aria-hidden>→</span>
+        </a>
+      </div>
+    </form>
   );
 }
 
@@ -128,17 +227,9 @@ function Index() {
           <h2 className="text-4xl sm:text-5xl">connect</h2>
           <p className="mt-6 text-lg opacity-90 max-w-xl">
             bridging the gap between the creative and technical aspects of
-            making records. open for:
+            making records.
           </p>
-          <ul className="mt-6 space-y-1.5 text-lg">
-            <li>· mixing</li>
-            <li>· interviews</li>
-            <li>· speaking</li>
-          </ul>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <PillLink href="mailto:hello@mixedbyalex.com">email</PillLink>
-            <PillLink href="https://instagram.com">instagram</PillLink>
-          </div>
+          <ContactForm />
         </Card>
 
         {/* Footer */}
