@@ -106,9 +106,9 @@ function Index() {
             <h2 className="text-4xl sm:text-5xl">selected works</h2>
             <p className="text-sm opacity-70">a few records i've made</p>
           </div>
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+          <div className="mt-8 flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory -mx-2 px-2 pb-2">
             {songs.map((s) => (
-              <figure key={s.title} className="group">
+              <figure key={s.title} className="group flex-shrink-0 w-[75%] sm:w-[45%] md:w-[32%] snap-start">
                 <div className="aspect-square overflow-hidden rounded-[var(--radius)] bg-current/10 flex items-center justify-center">
                   <span className="text-xs opacity-40 uppercase tracking-wider">artwork</span>
                 </div>
