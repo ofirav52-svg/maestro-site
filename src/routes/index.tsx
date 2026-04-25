@@ -298,7 +298,7 @@ function Index() {
         {/* Connect */}
         <ImageCard src={connect} alt="Studio monitors and notes" />
 
-        <Card className="bg-sage text-sage-foreground md:col-span-2">
+        <Card id="connect" className="bg-sage text-sage-foreground md:col-span-2 scroll-mt-4">
           <h2 className="text-4xl sm:text-5xl">connect</h2>
           <p className="mt-6 text-lg opacity-90 max-w-xl">
             bridging the gap between the creative and technical aspects of
@@ -379,6 +379,12 @@ function Index() {
         {/* Footer */}
         <Card className="bg-cream text-cream-foreground md:col-span-3 !py-6 flex items-center justify-between flex-wrap gap-3">
           <p className="text-sm opacity-70">© {new Date().getFullYear()} alex rivera</p>
+          <a
+            href="#connect"
+            className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-4 py-2 text-xs font-medium text-cream-foreground transition-colors hover:bg-ink/5"
+          >
+            let's talk music <span aria-hidden>→</span>
+          </a>
           <p className="text-sm opacity-70">los angeles, ca</p>
         </Card>
       </div>
