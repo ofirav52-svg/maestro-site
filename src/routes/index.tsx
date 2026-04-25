@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import portrait from "@/assets/producer-portrait.jpg";
-import console_ from "@/assets/console.jpg";
-import podcast from "@/assets/podcast.jpg";
 import connect from "@/assets/connect.jpg";
 
 export const Route = createFileRoute("/")({
@@ -23,17 +21,14 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const values = [
-  "intentionality",
-  "altruism",
-  "consistency",
-  "transparency",
-  "community",
-  "craft",
+const songs = [
+  { title: "song title one", year: "2024" },
+  { title: "song title two", year: "2024" },
+  { title: "song title three", year: "2023" },
+  { title: "song title four", year: "2023" },
+  { title: "song title five", year: "2023" },
+  { title: "song title six", year: "2022" },
 ];
-
-const mixesA = ["billie eilish", "harry styles", "the kid laroi", "summer walker", "omar apollo"];
-const mixesB = ["sza", "finneas", "raye", "khalid", "camila cabello"];
 
 function Card({
   className = "",
@@ -97,59 +92,34 @@ function Index() {
 
         <ImageCard src={portrait} alt="Portrait of alex rivera in the studio" />
 
-        {/* Bio + values */}
-        <Card className="bg-cream text-cream-foreground md:col-span-2 flex items-end">
+        {/* Bio */}
+        <Card className="bg-cream text-cream-foreground md:col-span-3 flex items-end">
           <p className="text-2xl sm:text-3xl md:text-4xl leading-tight font-display">
             an independent mix engineer crafting records with intention, clarity,
             and a love for the people behind the songs.
           </p>
         </Card>
 
-        <Card className="bg-sage text-sage-foreground">
-          <h2 className="text-4xl sm:text-5xl mb-6">values</h2>
-          <ul className="space-y-1.5 text-lg">
-            {values.map((v) => (
-              <li key={v}>{v}</li>
-            ))}
-          </ul>
-        </Card>
-
-        {/* Mixes */}
-        <ImageCard src={console_} alt="Analog mixing console" />
-
-        <Card className="bg-cream text-cream-foreground md:col-span-2">
+        {/* Selected works */}
+        <Card className="bg-sage text-sage-foreground md:col-span-3">
           <div className="flex items-baseline justify-between flex-wrap gap-4">
-            <h2 className="text-4xl sm:text-5xl">mixes</h2>
-            <p className="text-sm opacity-70">multiple grammy nominated records</p>
+            <h2 className="text-4xl sm:text-5xl">selected works</h2>
+            <p className="text-sm opacity-70">a few records i've made</p>
           </div>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-1.5 text-lg">
-            {[...mixesA, ...mixesB].map((m) => (
-              <div key={m} className="flex items-center gap-3 py-1 border-b border-current/10">
-                <span className="opacity-40 text-sm tabular-nums">·</span>
-                <span>{m}</span>
-              </div>
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+            {songs.map((s) => (
+              <figure key={s.title} className="group">
+                <div className="aspect-square overflow-hidden rounded-[var(--radius)] bg-current/10 flex items-center justify-center">
+                  <span className="text-xs opacity-40 uppercase tracking-wider">artwork</span>
+                </div>
+                <figcaption className="mt-3 flex items-baseline justify-between gap-2">
+                  <span className="text-base">{s.title}</span>
+                  <span className="text-sm opacity-60 tabular-nums">{s.year}</span>
+                </figcaption>
+              </figure>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <PillLink href="#discography">open discography</PillLink>
-            <PillLink href="#spotify">listen on spotify</PillLink>
-          </div>
         </Card>
-
-        {/* Podcasting */}
-        <Card className="bg-clay text-clay-foreground md:col-span-2">
-          <h2 className="text-4xl sm:text-5xl">podcasting</h2>
-          <p className="mt-6 text-lg opacity-90 max-w-xl">
-            providing high-quality insight to the pro audio industry through
-            long-form conversations with artists, engineers, and producers.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <PillLink href="#live">live with alex</PillLink>
-            <PillLink href="#conversations">conversations at</PillLink>
-          </div>
-        </Card>
-
-        <ImageCard src={podcast} alt="Podcast recording session" />
 
         {/* Connect */}
         <ImageCard src={connect} alt="Studio monitors and notes" />
