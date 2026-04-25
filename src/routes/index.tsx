@@ -245,7 +245,7 @@ function Index() {
             bridging the gap between the creative and technical aspects of
             making records.
           </p>
-          <ContactForm />
+          <ContactSection />
         </Card>
 
         {/* Footer */}
