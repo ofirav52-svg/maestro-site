@@ -82,11 +82,12 @@ function PillLink({ href, children }: { href: string; children: React.ReactNode 
   );
 }
 
-function ContactForm() {
+function ContactSection() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [showEmailForm, setShowEmailForm] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,72 +104,87 @@ function ContactForm() {
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label htmlFor="name" className="text-sm opacity-80">name</Label>
-          <Input
-            id="name"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
-            placeholder="your name"
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="email" className="text-sm opacity-80">email</Label>
-          <Input
-            id="email"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
-            placeholder="you@email.com"
-          />
-        </div>
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="subject" className="text-sm opacity-80">subject</Label>
-        <Input
-          id="subject"
-          required
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-          className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
-          placeholder="mixing inquiry"
-        />
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="message" className="text-sm opacity-80">message</Label>
-        <Textarea
-          id="message"
-          required
-          rows={5}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50 min-h-[120px]"
-          placeholder="tell me a little about the project..."
-        />
-      </div>
-      <div className="flex flex-wrap gap-3 pt-2">
+    <div className="mt-8 space-y-4">
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 text-lg font-bold text-cream transition-opacity hover:opacity-80"
+      >
+        message on whatsapp <span aria-hidden>→</span>
+      </a>
+
+      <div className="pt-2">
         <button
-          type="submit"
-          className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-opacity hover:opacity-80"
-        >
-          send email <span aria-hidden>→</span>
-        </button>
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
+          type="button"
+          onClick={() => setShowEmailForm((v) => !v)}
+          aria-expanded={showEmailForm}
           className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-5 py-2.5 text-sm font-medium text-sage-foreground transition-colors hover:bg-ink/5"
         >
-          message on whatsapp <span aria-hidden>→</span>
-        </a>
+          {showEmailForm ? "hide email form" : "or send an email"}{" "}
+          <span aria-hidden>{showEmailForm ? "↑" : "↓"}</span>
+        </button>
       </div>
-    </form>
+
+      {showEmailForm && (
+        <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-sm opacity-80">name</Label>
+              <Input
+                id="name"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
+                placeholder="your name"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-sm opacity-80">email</Label>
+              <Input
+                id="email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
+                placeholder="you@email.com"
+              />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="subject" className="text-sm opacity-80">subject</Label>
+            <Input
+              id="subject"
+              required
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50"
+              placeholder="mixing inquiry"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="message" className="text-sm opacity-80">message</Label>
+            <Textarea
+              id="message"
+              required
+              rows={5}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="bg-cream/40 border-ink/20 text-sage-foreground placeholder:text-sage-foreground/50 min-h-[120px]"
+              placeholder="tell me a little about the project..."
+            />
+          </div>
+          <button
+            type="submit"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-opacity hover:opacity-80"
+          >
+            send email <span aria-hidden>→</span>
+          </button>
+        </form>
+      )}
+    </div>
   );
 }
 
@@ -229,7 +245,7 @@ function Index() {
             bridging the gap between the creative and technical aspects of
             making records.
           </p>
-          <ContactForm />
+          <ContactSection />
         </Card>
 
         {/* Footer */}
