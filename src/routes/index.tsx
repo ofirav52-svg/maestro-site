@@ -379,15 +379,19 @@ function Index() {
           </Accordion>
         </Card>
 
-        {/* Footer */}
-        <Card className="bg-cream text-cream-foreground md:col-span-3 !py-6 flex items-center justify-between flex-wrap gap-3">
-          <p className="text-sm opacity-70">© {new Date().getFullYear()} alex rivera</p>
+        {/* Let's talk music CTA */}
+        <div className="md:col-span-3 flex justify-center">
           <a
             href="#connect"
-            className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-4 py-2 text-xs font-medium text-cream-foreground transition-colors hover:bg-ink/5"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-base font-medium text-cream transition-opacity hover:opacity-80"
           >
             let's talk music <span aria-hidden>→</span>
           </a>
+        </div>
+
+        {/* Footer */}
+        <Card className="bg-cream text-cream-foreground md:col-span-3 !py-6 flex items-center justify-between flex-wrap gap-3">
+          <p className="text-sm opacity-70">© {new Date().getFullYear()} alex rivera</p>
           <p className="text-sm opacity-70">los angeles, ca</p>
         </Card>
       </div>
