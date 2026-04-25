@@ -5,6 +5,12 @@ import connect from "@/assets/connect.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 const CONTACT_EMAIL = "hello@mixedbyalex.com";
 const WHATSAPP_NUMBER = "15551234567"; // update with real number (digits only, country code first)
@@ -323,6 +329,51 @@ function Index() {
               ))}
             </div>
           </div>
+        </Card>
+
+        {/* FAQ */}
+        <Card className="bg-cream text-cream-foreground md:col-span-3">
+          <div className="flex items-baseline justify-between flex-wrap gap-4">
+            <h2 className="text-4xl sm:text-5xl">got questions?</h2>
+            <p className="text-sm opacity-70">a few things people often ask</p>
+          </div>
+          <Accordion type="single" collapsible className="mt-8 w-full">
+            {[
+              {
+                q: "do you offer revisions?",
+                a: "yes — every mix includes two rounds of revisions so we can dial things in until it feels right. additional rounds are always available if needed.",
+              },
+              {
+                q: "what do i get with delivery?",
+                a: "you'll receive your final mix in 24-bit wav, an mp3 reference, instrumental and a cappella versions, and stems on request.",
+              },
+              {
+                q: "how long does a project take?",
+                a: "typical turnaround is 5–7 business days from the moment i receive your session. rush options are available depending on schedule.",
+              },
+              {
+                q: "what genres do you work in?",
+                a: "i mix across indie, alternative, pop, r&b, folk, and electronic — anything where the song is at the center.",
+              },
+              {
+                q: "how does the process work?",
+                a: "send over your session and references, i mix and share a first pass, we go through revisions together, then i deliver finals ready for mastering.",
+              },
+            ].map((item, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="border-b border-ink/15 last:border-b-0"
+              >
+                <AccordionTrigger className="text-lg sm:text-xl font-display text-left hover:no-underline py-5">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-base opacity-80 leading-relaxed pb-5">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </Card>
 
         {/* Footer */}
