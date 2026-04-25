@@ -99,12 +99,15 @@ function TestimonialCard({ quote, name, role }: { quote: string; name: string; r
 function Card({
   className = "",
   children,
+  id,
 }: {
   className?: string;
   children: React.ReactNode;
+  id?: string;
 }) {
   return (
     <div
+      id={id}
       className={`relative overflow-hidden rounded-[var(--radius)] p-8 sm:p-10 md:p-12 ${className}`}
     >
       {children}
