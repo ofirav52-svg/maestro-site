@@ -301,6 +301,30 @@ function Index() {
           <ContactSection />
         </Card>
 
+        {/* Client results */}
+        <Card className="bg-clay text-clay-foreground md:col-span-3 !px-0 sm:!px-0 md:!px-0 overflow-hidden">
+          <div className="px-8 sm:px-10 md:px-12 flex items-baseline justify-between flex-wrap gap-4">
+            <h2 className="text-4xl sm:text-5xl">client results</h2>
+            <p className="text-sm opacity-70">words from the people i've worked with</p>
+          </div>
+
+          <div className="mt-10 marquee-mask">
+            <div className="flex w-max animate-marquee">
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <TestimonialCard key={`row1-${i}`} {...t} />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 marquee-mask">
+            <div className="flex w-max animate-marquee-slow" style={{ animationDirection: "reverse" }}>
+              {[...testimonials.slice().reverse(), ...testimonials.slice().reverse()].map((t, i) => (
+                <TestimonialCard key={`row2-${i}`} {...t} />
+              ))}
+            </div>
+          </div>
+        </Card>
+
         {/* Footer */}
         <Card className="bg-cream text-cream-foreground md:col-span-3 !py-6 flex items-center justify-between flex-wrap gap-3">
           <p className="text-sm opacity-70">© {new Date().getFullYear()} alex rivera</p>
