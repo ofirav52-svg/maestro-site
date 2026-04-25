@@ -37,6 +37,59 @@ const songs = [
   { title: "song title six", year: "2022" },
 ];
 
+const testimonials = [
+  {
+    quote:
+      "alex made our record sound exactly like the version i'd been hearing in my head for years. patient, intuitive, and seriously talented.",
+    name: "maya chen",
+    role: "artist · 'paper hearts'",
+  },
+  {
+    quote:
+      "working with alex felt like a real collaboration. every note in the mix had intention. the band has never sounded better.",
+    name: "daniel ortiz",
+    role: "producer · sundown records",
+  },
+  {
+    quote:
+      "warm, transparent, and full of life. our single jumped out of every speaker we tested it on.",
+    name: "sasha lin",
+    role: "artist · 'midnight bloom'",
+  },
+  {
+    quote:
+      "incredible turnaround and even better mixes. alex is now the only person i trust with our masters.",
+    name: "jordan reeves",
+    role: "label a&r · little wave",
+  },
+  {
+    quote:
+      "thoughtful, fast, and kind. the kind of engineer you want to make ten more records with.",
+    name: "ivy delacroix",
+    role: "songwriter",
+  },
+  {
+    quote:
+      "alex elevated the project beyond what we thought was possible. our streams doubled in the first month.",
+    name: "marcus webb",
+    role: "artist · 'open road'",
+  },
+];
+
+function TestimonialCard({ quote, name, role }: { quote: string; name: string; role: string }) {
+  return (
+    <figure className="flex-shrink-0 w-[85vw] sm:w-[420px] md:w-[460px] rounded-[var(--radius)] bg-cream/60 text-cream-foreground p-8 sm:p-10 mx-3 flex flex-col justify-between min-h-[260px]">
+      <blockquote className="text-lg sm:text-xl leading-snug font-display">
+        “{quote}”
+      </blockquote>
+      <figcaption className="mt-6 text-sm">
+        <div className="font-semibold">{name}</div>
+        <div className="opacity-60">{role}</div>
+      </figcaption>
+    </figure>
+  );
+}
+
 function Card({
   className = "",
   children,
