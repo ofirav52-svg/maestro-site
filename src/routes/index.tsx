@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import portrait from "@/assets/producer-portrait.jpg";
 import connect from "@/assets/connect.jpg";
+import filmVibe from "@/assets/film-vibe.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
