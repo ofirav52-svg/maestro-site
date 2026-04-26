@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import portrait from "@/assets/producer-portrait.jpg";
 import connect from "@/assets/connect.jpg";
+import filmVibe from "@/assets/film-vibe.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -334,8 +335,11 @@ function Index() {
           </div>
         </Card>
 
+        {/* Film vibe image */}
+        <ImageCard src={filmVibe} alt="Vintage film camera with photo prints and film strips on a wooden desk" />
+
         {/* FAQ */}
-        <Card className="bg-cream text-cream-foreground md:col-span-3">
+        <Card className="bg-cream text-cream-foreground md:col-span-2">
           <div className="flex items-baseline justify-between flex-wrap gap-4">
             <h2 className="text-4xl sm:text-5xl">got questions?</h2>
             <p className="text-sm opacity-70">a few things people often ask</p>
