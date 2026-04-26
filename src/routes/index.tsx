@@ -335,8 +335,11 @@ function Index() {
           </div>
         </Card>
 
+        {/* Film vibe image */}
+        <ImageCard src={filmVibe} alt="Vintage film camera with photo prints and film strips on a wooden desk" />
+
         {/* FAQ */}
-        <Card className="bg-cream text-cream-foreground md:col-span-3">
+        <Card className="bg-cream text-cream-foreground md:col-span-2">
           <div className="flex items-baseline justify-between flex-wrap gap-4">
             <h2 className="text-4xl sm:text-5xl">got questions?</h2>
             <p className="text-sm opacity-70">a few things people often ask</p>
