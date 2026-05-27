@@ -178,24 +178,24 @@ function ContactSection() {
         message on whatsapp <span aria-hidden>→</span>
       </a>
 
-      <div className="flex flex-wrap gap-3 pt-2">
-        <a
-          href={`https://ig.me/m/${INSTAGRAM_HANDLE}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-5 py-2.5 text-sm font-medium text-sage-foreground transition-colors hover:bg-ink/5"
-        >
-          dm on instagram <span aria-hidden>→</span>
-        </a>
+      <div className="flex flex-nowrap items-center gap-2 pt-2">
         <button
           type="button"
           onClick={() => setShowEmailForm((v) => !v)}
           aria-expanded={showEmailForm}
-          className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-5 py-2.5 text-sm font-medium text-sage-foreground transition-colors hover:bg-ink/5"
+          className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-ink/30 px-4 py-2.5 text-sm font-medium text-sage-foreground transition-colors hover:bg-ink/5"
         >
           {showEmailForm ? "hide email form" : "or send an email"}{" "}
           <span aria-hidden>{showEmailForm ? "↑" : "↓"}</span>
         </button>
+        <a
+          href={`https://ig.me/m/${INSTAGRAM_HANDLE}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-ink/30 px-4 py-2.5 text-sm font-medium text-sage-foreground transition-colors hover:bg-ink/5"
+        >
+          dm on instagram <span aria-hidden>→</span>
+        </a>
       </div>
 
       {showEmailForm && (
