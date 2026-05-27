@@ -178,7 +178,7 @@ function ContactSection() {
         message on whatsapp <span aria-hidden>→</span>
       </a>
 
-      <div>
+      <div className="flex flex-wrap gap-3 pt-2">
         <a
           href={`https://ig.me/m/${INSTAGRAM_HANDLE}`}
           target="_blank"
@@ -187,9 +187,6 @@ function ContactSection() {
         >
           dm on instagram <span aria-hidden>→</span>
         </a>
-      </div>
-
-      <div className="pt-2">
         <button
           type="button"
           onClick={() => setShowEmailForm((v) => !v)}
