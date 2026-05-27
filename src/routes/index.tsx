@@ -15,6 +15,7 @@ import {
 
 const CONTACT_EMAIL = "hello@mixedbyalex.com";
 const WHATSAPP_NUMBER = "15551234567"; // update with real number (digits only, country code first)
+const INSTAGRAM_HANDLE = "mixedbyalex"; // update with real handle
 
 export const Route = createFileRoute("/")({
   head: () => ({
