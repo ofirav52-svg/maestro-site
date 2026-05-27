@@ -178,6 +178,17 @@ function ContactSection() {
         message on whatsapp <span aria-hidden>→</span>
       </a>
 
+      <div>
+        <a
+          href={`https://ig.me/m/${INSTAGRAM_HANDLE}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-5 py-2.5 text-sm font-medium text-sage-foreground transition-colors hover:bg-ink/5"
+        >
+          dm on instagram <span aria-hidden>→</span>
+        </a>
+      </div>
+
       <div className="pt-2">
         <button
           type="button"
