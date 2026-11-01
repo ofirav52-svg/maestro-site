@@ -265,7 +265,7 @@ function Index() {
     <main className="min-h-screen px-4 py-4 sm:px-6 sm:py-6">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
         {/* Hero */}
-        <Card className="bg-clay text-clay-foreground md:col-span-2 md:row-span-1 min-h-[60vh] flex flex-col justify-between">
+        <Card className="bg-clay text-clay-foreground md:col-span-2 md:row-span-1 flex flex-col justify-end">
           <div>
             <p className="text-lg sm:text-xl font-medium opacity-90">Prod by</p>
             <h1
@@ -275,9 +275,6 @@ function Index() {
               Ofir Avni
             </h1>
           </div>
-          <p className="text-sm sm:text-base opacity-80 mt-10">
-            
-          </p>
         </Card>
 
         <ImageCard src={portrait} alt="Portrait of alex rivera in the studio" />
