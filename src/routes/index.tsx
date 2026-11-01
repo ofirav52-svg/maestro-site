@@ -263,21 +263,23 @@ function ContactSection() {
 function Index() {
   return (
     <main className="min-h-screen px-4 py-4 sm:px-6 sm:py-6">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-5 md:gap-5">
         {/* Hero */}
-        <Card className="bg-clay text-clay-foreground md:col-span-2 md:row-span-1 flex flex-col justify-end">
+        <Card className="bg-clay text-clay-foreground md:col-span-3 md:aspect-[5/6] flex flex-col justify-start">
           <div>
             <p className="text-lg sm:text-xl font-medium opacity-90">Prod by</p>
             <h1
               className="mt-2 font-fresh font-semibold tracking-tight leading-[0.95] whitespace-nowrap"
-              style={{ fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)" }}
+              style={{ fontSize: "clamp(2.75rem, 7vw, 6.5rem)" }}
             >
               Ofir Avni
             </h1>
           </div>
         </Card>
 
-        <ImageCard src={portrait} alt="Portrait of alex rivera in the studio" />
+        <div className="md:col-span-2">
+          <ImageCard src={portrait} alt="Portrait of Ofir Avni in the studio" />
+        </div>
 
         {/* Bio */}
         <Card className="bg-cream text-cream-foreground md:col-span-3 flex items-end">
