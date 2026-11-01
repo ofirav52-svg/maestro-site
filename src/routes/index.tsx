@@ -263,24 +263,26 @@ function ContactSection() {
 function Index() {
   return (
     <main className="min-h-screen px-4 py-4 sm:px-6 sm:py-6">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-5 md:gap-5">
         {/* Hero */}
-        <Card className="bg-clay text-clay-foreground md:col-span-2 md:row-span-1 flex flex-col justify-end">
+        <Card className="bg-clay text-clay-foreground md:col-span-3 md:aspect-[5/6] flex flex-col justify-start">
           <div>
             <p className="text-lg sm:text-xl font-medium opacity-90">Prod by</p>
             <h1
               className="mt-2 font-fresh font-semibold tracking-tight leading-[0.95] whitespace-nowrap"
-              style={{ fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)" }}
+              style={{ fontSize: "clamp(2.75rem, 7vw, 6.5rem)" }}
             >
               Ofir Avni
             </h1>
           </div>
         </Card>
 
-        <ImageCard src={portrait} alt="Portrait of alex rivera in the studio" />
+        <div className="md:col-span-2">
+          <ImageCard src={portrait} alt="Portrait of Ofir Avni in the studio" />
+        </div>
 
         {/* Bio */}
-        <Card className="bg-cream text-cream-foreground md:col-span-3 flex items-end">
+        <Card className="bg-cream text-cream-foreground md:col-span-5 flex items-end">
           <p className="text-2xl sm:text-3xl md:text-4xl leading-tight font-display">
             an independent mix engineer crafting records with intention, clarity,
             and a love for the people behind the songs.
@@ -288,7 +290,7 @@ function Index() {
         </Card>
 
         {/* Selected works */}
-        <Card className="bg-sage text-sage-foreground md:col-span-3">
+        <Card className="bg-sage text-sage-foreground md:col-span-5">
           <div className="flex items-baseline justify-between flex-wrap gap-4">
             <h2 className="text-4xl sm:text-5xl">selected works</h2>
             <p className="text-sm opacity-70">a few records i've made</p>
@@ -309,9 +311,11 @@ function Index() {
         </Card>
 
         {/* Connect */}
-        <ImageCard src={connect} alt="Studio monitors and notes" />
+        <div className="md:col-span-2">
+          <ImageCard src={connect} alt="Studio monitors and notes" />
+        </div>
 
-        <Card id="connect" className="bg-sage text-sage-foreground md:col-span-2 scroll-mt-4">
+        <Card id="connect" className="bg-sage text-sage-foreground md:col-span-3 scroll-mt-4">
           <h2 className="text-4xl sm:text-5xl">connect</h2>
           <p className="mt-6 text-lg opacity-90 max-w-xl">
             bridging the gap between the creative and technical aspects of
@@ -321,7 +325,7 @@ function Index() {
         </Card>
 
         {/* Client results */}
-        <Card className="bg-clay text-clay-foreground md:col-span-3 !px-0 sm:!px-0 md:!px-0 overflow-hidden">
+        <Card className="bg-clay text-clay-foreground md:col-span-5 !px-0 sm:!px-0 md:!px-0 overflow-hidden">
           <div className="px-8 sm:px-10 md:px-12 flex items-baseline justify-between flex-wrap gap-4">
             <h2 className="text-4xl sm:text-5xl">client results</h2>
             <p className="text-sm opacity-70">words from the people i've worked with</p>
@@ -345,10 +349,12 @@ function Index() {
         </Card>
 
         {/* Film vibe image */}
-        <ImageCard src={filmVibe} alt="Vintage film camera with photo prints and film strips on a wooden desk" />
+        <div className="md:col-span-2">
+          <ImageCard src={filmVibe} alt="Vintage film camera with photo prints and film strips on a wooden desk" />
+        </div>
 
         {/* FAQ */}
-        <Card className="bg-cream text-cream-foreground md:col-span-2">
+        <Card className="bg-cream text-cream-foreground md:col-span-3">
           <div className="flex items-baseline justify-between flex-wrap gap-4">
             <h2 className="text-4xl sm:text-5xl">got questions?</h2>
             <p className="text-sm opacity-70">a few things people often ask</p>
@@ -393,7 +399,7 @@ function Index() {
         </Card>
 
         {/* Let's talk music CTA */}
-        <div className="md:col-span-3 flex justify-center">
+        <div className="md:col-span-5 flex justify-center">
           <a
             href="#connect"
             className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-base font-medium text-cream transition-opacity hover:opacity-80"
@@ -403,7 +409,7 @@ function Index() {
         </div>
 
         {/* Footer */}
-        <Card className="bg-cream text-cream-foreground md:col-span-3 !py-6 flex items-center justify-between flex-wrap gap-3">
+        <Card className="bg-cream text-cream-foreground md:col-span-5 !py-6 flex items-center justify-between flex-wrap gap-3">
           <p className="text-sm opacity-70">© {new Date().getFullYear()} alex rivera</p>
           <p className="text-sm opacity-70">los angeles, ca</p>
         </Card>
