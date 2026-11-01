@@ -7,6 +7,7 @@
 @theme inline {
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-fresh: "Space Grotesk", "Inter", system-ui, sans-serif;
   --color-clay: var(--clay);
   --color-clay-foreground: var(--clay-foreground);
   --color-cream: var(--cream);
