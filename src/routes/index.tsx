@@ -267,7 +267,7 @@ function Index() {
         {/* Hero */}
         <Card className="bg-clay text-clay-foreground md:col-span-2 md:row-span-1 min-h-[60vh] flex flex-col justify-between">
           <div>
-            <p className="text-lg sm:text-xl font-medium opacity-90">mixed by</p>
+            <p className="text-lg sm:text-xl font-medium opacity-90">Prod by</p>
             <h1 className="mt-2 text-6xl sm:text-7xl md:text-8xl leading-[0.9]">
               alex rivera
             </h1>
