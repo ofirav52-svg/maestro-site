@@ -282,7 +282,7 @@ function Index() {
         </div>
 
         {/* Bio */}
-        <Card className="bg-cream text-cream-foreground md:col-span-3 flex items-end">
+        <Card className="bg-cream text-cream-foreground md:col-span-5 flex items-end">
           <p className="text-2xl sm:text-3xl md:text-4xl leading-tight font-display">
             an independent mix engineer crafting records with intention, clarity,
             and a love for the people behind the songs.
@@ -290,7 +290,7 @@ function Index() {
         </Card>
 
         {/* Selected works */}
-        <Card className="bg-sage text-sage-foreground md:col-span-3">
+        <Card className="bg-sage text-sage-foreground md:col-span-5">
           <div className="flex items-baseline justify-between flex-wrap gap-4">
             <h2 className="text-4xl sm:text-5xl">selected works</h2>
             <p className="text-sm opacity-70">a few records i've made</p>
@@ -311,9 +311,11 @@ function Index() {
         </Card>
 
         {/* Connect */}
-        <ImageCard src={connect} alt="Studio monitors and notes" />
+        <div className="md:col-span-2">
+          <ImageCard src={connect} alt="Studio monitors and notes" />
+        </div>
 
-        <Card id="connect" className="bg-sage text-sage-foreground md:col-span-2 scroll-mt-4">
+        <Card id="connect" className="bg-sage text-sage-foreground md:col-span-3 scroll-mt-4">
           <h2 className="text-4xl sm:text-5xl">connect</h2>
           <p className="mt-6 text-lg opacity-90 max-w-xl">
             bridging the gap between the creative and technical aspects of
@@ -323,7 +325,7 @@ function Index() {
         </Card>
 
         {/* Client results */}
-        <Card className="bg-clay text-clay-foreground md:col-span-3 !px-0 sm:!px-0 md:!px-0 overflow-hidden">
+        <Card className="bg-clay text-clay-foreground md:col-span-5 !px-0 sm:!px-0 md:!px-0 overflow-hidden">
           <div className="px-8 sm:px-10 md:px-12 flex items-baseline justify-between flex-wrap gap-4">
             <h2 className="text-4xl sm:text-5xl">client results</h2>
             <p className="text-sm opacity-70">words from the people i've worked with</p>
@@ -395,7 +397,7 @@ function Index() {
         </Card>
 
         {/* Let's talk music CTA */}
-        <div className="md:col-span-3 flex justify-center">
+        <div className="md:col-span-5 flex justify-center">
           <a
             href="#connect"
             className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-base font-medium text-cream transition-opacity hover:opacity-80"
@@ -405,7 +407,7 @@ function Index() {
         </div>
 
         {/* Footer */}
-        <Card className="bg-cream text-cream-foreground md:col-span-3 !py-6 flex items-center justify-between flex-wrap gap-3">
+        <Card className="bg-cream text-cream-foreground md:col-span-5 !py-6 flex items-center justify-between flex-wrap gap-3">
           <p className="text-sm opacity-70">© {new Date().getFullYear()} alex rivera</p>
           <p className="text-sm opacity-70">los angeles, ca</p>
         </Card>
