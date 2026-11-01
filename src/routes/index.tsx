@@ -265,7 +265,7 @@ function Index() {
     <main className="min-h-screen px-4 py-4 sm:px-6 sm:py-6">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-5 md:gap-5">
         {/* Hero */}
-        <Card className="bg-clay text-clay-foreground md:col-span-3 md:aspect-[5/6] flex flex-col justify-start">
+        <Card className="bg-clay text-clay-foreground md:col-span-3 md:aspect-square flex flex-col justify-start">
           <div>
             <p className="text-lg sm:text-xl font-medium opacity-90">Prod by</p>
             <h1
