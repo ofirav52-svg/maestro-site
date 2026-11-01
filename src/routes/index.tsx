@@ -269,11 +269,11 @@ function Index() {
           <div>
             <p className="text-lg sm:text-xl font-medium opacity-90">Prod by</p>
             <h1 className="mt-2 text-6xl sm:text-7xl md:text-8xl leading-[0.9]">
-              alex rivera
+              Ofir Avni
             </h1>
           </div>
           <p className="text-sm sm:text-base opacity-80 mt-10">
-            at the gift shop · downtown los angeles
+            
           </p>
         </Card>
 
